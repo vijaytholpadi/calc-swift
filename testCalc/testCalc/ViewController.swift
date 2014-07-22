@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
+    @IBOutlet var answerField: UILabel
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,38 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func buttonTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+        println("button tapped!")
+        if answerField.text == "0"{
+            answerField.text = theButton.titleLabel.text
+        }else{
+            answerField.text = answerField.text + theButton.titleLabel.text
+        }
+    }
+    
+    @IBAction func enterTapped(theButton: UIButton){
+        println(theButton.titleLabel.text)
+    }
+    
+    @IBAction func clearTapped(theButton: UIButton){
+        println(theButton.titleLabel.text)
+    }
+    
+    @IBAction func plusTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+    }
+    
+    @IBAction func minusTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+    }
+    
+    @IBAction func multiplyTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+    }
+    
+    @IBAction func divideTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+    }
 }
 
