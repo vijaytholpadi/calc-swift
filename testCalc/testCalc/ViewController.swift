@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     var lastNumber :String = ""
-    @IBOutlet var answerField: UILabel
-    @IBOutlet var operatorField: UILabel
+    @IBOutlet var answerField: UILabel!
+    @IBOutlet var operatorField: UILabel!
     
     
     override func viewDidLoad() {
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     
     @IBAction func multiplyTapped(theButton: UIButton) {
         println(theButton.titleLabel.text)
-        if operatorField.text == ""{
+        if operatorField?.text == ""{
             operatorField.text = "*"
             lastNumber = answerField.text
             answerField.text = "0.0"
