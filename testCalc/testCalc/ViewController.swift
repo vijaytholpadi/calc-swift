@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(theButton: UIButton) {
         println(theButton.titleLabel.text)
         println("button tapped!")
-        if answerField.text == "0"{
+        if answerField.text == "0.0"{
             answerField.text = theButton.titleLabel.text
         }else{
             answerField.text = answerField.text + theButton.titleLabel.text
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     @IBAction func clearTapped(theButton: UIButton){
         println(theButton.titleLabel.text)
         operatorField.text = ""
-        answerField.text = "0"
+        answerField.text = "0.0"
         lastNumber = ""
     }
     
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         if operatorField.text == ""{
             operatorField.text = "+"
             lastNumber = answerField.text
-            answerField.text = "0"
+            answerField.text = "0.0"
         }else{
             enterTapped(nil)
             operatorField.text = "+"
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         if operatorField.text == ""{
             operatorField.text = "-"
             lastNumber = answerField.text
-            answerField.text = "0"
+            answerField.text = "0.0"
         }else{
             enterTapped(nil)
             operatorField.text = "-"
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         if operatorField.text == ""{
             operatorField.text = "*"
             lastNumber = answerField.text
-            answerField.text = "0"
+            answerField.text = "0.0"
         }else{
             enterTapped(nil)
             operatorField.text = "*"
@@ -104,10 +104,22 @@ class ViewController: UIViewController {
         if operatorField.text == ""{
             operatorField.text = "/"
             lastNumber = answerField.text
-            answerField.text = "0"
+            answerField.text = "0.0"
         }else{
             enterTapped(nil)
             operatorField.text = "/"
+        }
+    }
+    
+    @IBAction func moduloTapped(theButton: UIButton) {
+        println(theButton.titleLabel.text)
+        if operatorField.text == ""{
+            operatorField.text = "%"
+            lastNumber = answerField.text
+            answerField.text = "0.0"
+        }else{
+            enterTapped(nil)
+            operatorField.text = "%"
         }
     }
     
