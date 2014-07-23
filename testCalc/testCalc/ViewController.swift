@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    var lastNumber :String = ""
     @IBOutlet var answerField: UILabel
     @IBOutlet var operatorField: UILabel
     
@@ -34,18 +34,43 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func enterTapped(theButton: UIButton){
-        println(theButton.titleLabel.text)
+    @IBAction func enterTapped(AnyObject?){
+        var num1 = lastNumber.toInt()
+        var num2 = answerField.text.toInt()
+        
+        if !num1 || !num2 {
+            showError()
+            return
+        }
+        var answer = 0
+        if operatorField.text == "+"{
+            answer = num1! + num2!
+        } else if operatorField.text == "-"{
+            answer = num1! - num2!
+        }else if operatorField.text == "*"{
+            answer = num1! * num2!
+        }else if operatorField.text == "/"{
+            answer = num1! / num2!
+        }
+        answerField.text = "\(answer)"
+        operatorField.text = ""
     }
-    
+
     @IBAction func clearTapped(theButton: UIButton){
         println(theButton.titleLabel.text)
+        operatorField.text = ""
         answerField.text = "0"
+        lastNumber = ""
     }
     
     @IBAction func plusTapped(theButton: UIButton) {
         println(theButton.titleLabel.text)
         if operatorField.text == ""{
+            operatorField.text = "+"
+            lastNumber = answerField.text
+            answerField.text = "0"
+        }else{
+            enterTapped(nil)
             operatorField.text = "+"
         }
     }
@@ -54,15 +79,40 @@ class ViewController: UIViewController {
         println(theButton.titleLabel.text)
         if operatorField.text == ""{
             operatorField.text = "-"
+            lastNumber = answerField.text
+            answerField.text = "0"
+        }else{
+            enterTapped(nil)
+            operatorField.text = "-"
         }
     }
     
     @IBAction func multiplyTapped(theButton: UIButton) {
         println(theButton.titleLabel.text)
+        if operatorField.text == ""{
+            operatorField.text = "*"
+            lastNumber = answerField.text
+            answerField.text = "0"
+        }else{
+            enterTapped(nil)
+            operatorField.text = "*"
+        }
     }
     
     @IBAction func divideTapped(theButton: UIButton) {
         println(theButton.titleLabel.text)
+        if operatorField.text == ""{
+            operatorField.text = "/"
+            lastNumber = answerField.text
+            answerField.text = "0"
+        }else{
+            enterTapped(nil)
+            operatorField.text = "/"
+        }
+    }
+    
+    func showError(){
+        println("There was an error. Please inspect.")
     }
 }
 
