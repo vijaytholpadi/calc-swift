@@ -246,8 +246,18 @@
                                     <action selector="clearTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wct-6j-y8U"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-bd-Blj">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="257" y="50" width="49" height="24"/>
+                                </variation>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <variation key="default">
                             <mask key="subviews">
@@ -271,6 +281,7 @@
                                 <exclude reference="jjT-h9-wi5"/>
                                 <exclude reference="S1l-rV-FCR"/>
                                 <exclude reference="hOE-yH-Ooc"/>
+                                <exclude reference="duo-bd-Blj"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -295,11 +306,13 @@
                                 <include reference="jjT-h9-wi5"/>
                                 <include reference="S1l-rV-FCR"/>
                                 <include reference="hOE-yH-Ooc"/>
+                                <include reference="duo-bd-Blj"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="answerField" destination="TlO-RS-CJD" id="uhF-iJ-36W"/>
+                        <outlet property="operatorField" destination="duo-bd-Blj" id="kO7-2o-LdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
