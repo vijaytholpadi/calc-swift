@@ -35,22 +35,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func enterTapped(AnyObject?){
-        var num1 = lastNumber.toInt()
-        var num2 = answerField.text.toInt()
+        var num1:Float = lastNumber.bridgeToObjectiveC().floatValue
+        var num2:Float = answerField.text.bridgeToObjectiveC().floatValue
         
-        if !num1 || !num2 {
+        if (num1 == 0.0) || (num2 == 0.0) {
             showError()
             return
         }
-        var answer = 0
+        var answer:Float = 0.0
         if operatorField.text == "+"{
-            answer = num1! + num2!
+            answer = num1 + num2
         } else if operatorField.text == "-"{
-            answer = num1! - num2!
+            answer = num1 - num2
         }else if operatorField.text == "*"{
-            answer = num1! * num2!
+            answer = num1 * num2
         }else if operatorField.text == "/"{
-            answer = num1! / num2!
+            answer = num1 / num2
         }
         answerField.text = "\(answer)"
         operatorField.text = ""
@@ -109,6 +109,10 @@ class ViewController: UIViewController {
             enterTapped(nil)
             operatorField.text = "/"
         }
+    }
+    
+    @IBAction func decimalPointPressed(theButton: UIButton){
+        answerField.text = answerField.text + "."
     }
     
     func showError(){
